@@ -10,6 +10,8 @@ import {
 } from '@/components/ui/sheet'
 
 import { Menu } from 'lucide-react'
+import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/nextjs'
+import { Button } from './ui/button'
 
 export default function Header() {
   return (
@@ -38,6 +40,16 @@ export default function Header() {
 
         <div className='flex items-center justify-between gap-6'>
           <ThemeToggle />
+
+          <SignedIn>
+            <UserButton />
+          </SignedIn>
+
+          <SignedOut>
+            <SignInButton>
+              <Button>Sign in</Button>
+            </SignInButton>
+          </SignedOut>
         </div>
       </nav>
     </header>
